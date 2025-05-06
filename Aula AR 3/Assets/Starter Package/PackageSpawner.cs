@@ -23,9 +23,10 @@ public class PackageSpawner : MonoBehaviour
 {
     public DrivingSurfaceManager DrivingSurfaceManager;
     public PackageBehaviour Package;
-    public  List <GameObject> PackagePrefab;
-    public List<GameObject> ObstaculosPrefab;
-    
+    public List<GameObject> PackagePrefab;
+    public PackageBehaviour fakeBeha;
+    public GameObject obstaculo;
+
 
     public static Vector3 RandomInTriangle(Vector3 v1, Vector3 v2)
     {
@@ -66,28 +67,27 @@ public class PackageSpawner : MonoBehaviour
         //Convert the random point to world space
         var randomPoint = plane.transform.TransformPoint(randomInTriangle);
 
-        
+
 
         return randomPoint;
     }
 
     public void SpawnPackage(ARPlane plane)
     {
-        var packageClone = GameObject.Instantiate(PackagePrefab[Random.Range(0,PackagePrefab.Count)]);
+        var packageClone = GameObject.Instantiate(PackagePrefab[Random.Range(0, PackagePrefab.Count)]);
         packageClone.transform.position = FindRandomLocation(plane);
 
         Package = packageClone.GetComponent<PackageBehaviour>();
 
 
     }
-    public void Spawn0bstaculo(ARPlane plane)
+
+    public void SpawnObstaculo(ARPlane plane)
     {
-        var packageClone = GameObject.Instantiate(ObstaculosPrefab[Random.Range(0, ObstaculosPrefab.Count)]);
-        packageClone.transform.position = FindRandomLocation(plane);
-
-        
-
-
+        //PARA O FAKE
+        var fakePackage = GameObject.Instantiate(obstaculo);
+        fakePackage.transform.position = FindRandomLocation(plane);
+        fakeBeha = fakePackage.GetComponent<PackageBehaviour>();
     }
 
     private void Update()
@@ -95,15 +95,18 @@ public class PackageSpawner : MonoBehaviour
         var lockedPlane = DrivingSurfaceManager.LockedPlane;
         if (lockedPlane != null)
         {
-            if (Package == null)
+            if (Package == null || fakeBeha == null) //PARA O FAKE TAMBEM
             {
                 SpawnPackage(lockedPlane);
-                Spawn0bstaculo(lockedPlane);
-
+                SpawnObstaculo(lockedPlane);
             }
 
             var packagePosition = Package.gameObject.transform.position;
             packagePosition.Set(packagePosition.x, lockedPlane.center.y, packagePosition.z);
+
+            //PARA O FAKE
+            var fakePosition = fakeBeha.gameObject.transform.position;
+            fakePosition.Set(fakePosition.x, lockedPlane.center.y, fakePosition.z);
         }
     }
 }

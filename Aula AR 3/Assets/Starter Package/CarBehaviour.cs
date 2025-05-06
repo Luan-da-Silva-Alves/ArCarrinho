@@ -17,6 +17,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 /**
  * Our car will track a reticle and collide with a <see cref="PackageBehaviour"/>.
@@ -26,7 +27,14 @@ public class CarBehaviour : MonoBehaviour
     public ReticleBehaviour Reticle;
     public float Speed = 1.2f;
     public int Pontuacao = 0;
+    public  TextMeshProUGUI pontuacaoTexto;
 
+
+    private void Start()
+    {
+        pontuacaoTexto = GameObject.Find("pontuacaoTexto").GetComponent<TextMeshProUGUI>();
+        pontuacaoTexto.text = "Pontos: " + Pontuacao.ToString();
+    }
     private void Update()
     {
         var trackingPosition = Reticle.transform.position;
@@ -44,11 +52,7 @@ public class CarBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Obstaculo"))
-        {
-            SceneManager.LoadScene("TelaDerrota");
-
-        }
+        
 
         if (other.gameObject.CompareTag("+10"))
         {
@@ -76,9 +80,23 @@ public class CarBehaviour : MonoBehaviour
 
         }
 
-        if(Pontuacao = 100)
+
+
+       if(Pontuacao == 100) {
+            SceneManager.LoadScene("TelaVitória");
+        }
+       pontuacaoTexto.text = "Pontos: " + Pontuacao.ToString();
+        Destroy(other.gameObject);
+
+        if(Pontuacao >= 100)
         {
+            SceneManager.LoadScene("TelaVitoria");
+        }
+        else if(other.gameObject.CompareTag("Obstaculo")){
+            SceneManager.LoadScene("TelaDerrota");
 
         }
+
+
     }
 }

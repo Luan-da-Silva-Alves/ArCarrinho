@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4475998360808636}
-  - component: {fileID: -4616685979325445990}
-  - component: {fileID: -3155451217284389733}
+  - component: {fileID: 7646256548145574259}
   m_Layer: 0
   m_Name: Pully
-  m_TagString: Untagged
+  m_TagString: +10
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,25 +27,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.7057, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4021533445115932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4616685979325445990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255541323958728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33a45fec2d3c485fae0f1e4b207b054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &-3155451217284389733
+--- !u!65 &7646256548145574259
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.49348935, y: 0.5153036, z: 0.44396907}
-  m_Center: {x: -0.10151964, y: -0.035561323, z: 0.03988661}
+  m_Size: {x: 0.38729474, y: 0.34216768, z: 0.3520113}
+  m_Center: {x: -0.08369048, y: -0.07145491, z: -0.0019275993}
 --- !u!1 &1296965077457014
 GameObject:
   m_ObjectHideFlags: 0

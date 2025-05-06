@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Obstaculo
+  - +10
+  - +20
+  - +30
+  - +40
   layers:
   - Default
   - TransparentFX
