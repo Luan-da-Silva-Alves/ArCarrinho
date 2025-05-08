@@ -171,7 +171,7 @@ MonoBehaviour:
   - {fileID: 1255541323958728, guid: abceb10e9c1c8504eb85132ddc32f9e7, type: 3}
   - {fileID: 1856854601013476, guid: 8e885bf6d3dd0cb4e8c89899b98fa1ba, type: 3}
   fakeBeha: {fileID: 0}
-  obstaculo: {fileID: 6173341499977504312, guid: 9cf4cca6be6d72b4191cec509848f6ac, type: 3}
+  obstaculo: {fileID: 0}
 --- !u!1 &99117141
 GameObject:
   m_ObjectHideFlags: 0

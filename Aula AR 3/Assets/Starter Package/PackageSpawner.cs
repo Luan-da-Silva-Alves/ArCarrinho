@@ -24,7 +24,7 @@ public class PackageSpawner : MonoBehaviour
     public DrivingSurfaceManager DrivingSurfaceManager;
     public PackageBehaviour Package;
     public List<GameObject> PackagePrefab;
-    public PackageBehaviour fakeBeha;
+    
     public GameObject obstaculo;
 
 
@@ -101,12 +101,10 @@ public class PackageSpawner : MonoBehaviour
                 SpawnObstaculo(lockedPlane);
             }
 
-            var packagePosition = Package.gameObject.transform.position;
+            ar packagePosition = Package.gameObject.transform.position;
             packagePosition.Set(packagePosition.x, lockedPlane.center.y, packagePosition.z);
 
-            //PARA O FAKE
-            var fakePosition = fakeBeha.gameObject.transform.position;
-            fakePosition.Set(fakePosition.x, lockedPlane.center.y, fakePosition.z);
+           
         }
     }
 }
